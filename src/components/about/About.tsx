@@ -40,7 +40,7 @@ type SingleItem = {
 
 type SingleProps = {
   item: SingleItem
-  variants: {}
+  variants: Variants
 }
 
 const items = [
