@@ -49,11 +49,11 @@ const items = [
     img: './character.png',
     title: 'Me',
     desc: `
-               I am a soon-to-be 35-year-old individual from Helsinki who has
+               I am a 34 years old individual from Helsinki.
                I am currently in the process of switching careers and am on study leave from my current job. 
-               I am in my second year of studying for a degree in IT at Laurea
+               I am in my second year of studying for a degree in IT and business at Laurea
                University of Applied Sciences. In my free time I like to spend time with my family,
-               play video games and code.
+               play video games make music and code.
     `,
   },
   {
@@ -65,8 +65,7 @@ const items = [
                have a keen interest in technology. I started learning programming
                years ago. My dream is to work in the field of programming. I have a
                lot of experience with HTML, CSS, JavaScript, TypeScript, React, Node,
-               and databases. 
-               
+               and databases.                
               
                I have taken several courses related to
                programming, including the Fullstack Open course at the University of
