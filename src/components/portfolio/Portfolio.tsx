@@ -17,9 +17,9 @@ type SingleProps = {
 const items = [
   {
     id: 1,
-    title: 'Suolakurkkutietokanta',
+    title: 'Pickle database',
     img: './coding.png',
-    desc: 'Verkkosivujen kehittäminen kurssilla tehty sivusto. HTML/CSS & Vanilla JS',
+    desc: 'Website development course project. HTML/CSS & Vanilla JS  ',
     url: 'https://github.com/kh4leoni/suolakurkkumeininki',
   },
   {

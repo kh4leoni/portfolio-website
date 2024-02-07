@@ -16,6 +16,10 @@
       padding-top: calc(100vh - 100px);
     }
 
+    @include smallPhone {
+      padding-top: calc(100vh - 38px)
+    }
+
     h1 {
       @include mobile {
         font-size: 16px;
@@ -26,6 +30,10 @@
       height: 10px;
       background-color: white;
       margin-top:20px;
+
+      @include smallPhone {
+        margin-top: 5px;
+      }
     }
   }
 

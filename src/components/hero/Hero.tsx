@@ -1,7 +1,7 @@
 import './hero.scss'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 
-const textVariants = {
+const textVariants: Variants = {
   initial: {
     x: -500,
     opacity: 0,
@@ -24,7 +24,7 @@ const textVariants = {
   },
 }
 
-const sliderVariants = {
+const sliderVariants: Variants = {
   initial: {
     x: 0,
   },
@@ -54,10 +54,20 @@ const Hero = () => {
 
           <motion.div className="buttons" variants={textVariants}>
             <a href="#Portfolio">
-              <motion.button variants={textVariants}>My work</motion.button>
+              <motion.button
+                variants={textVariants}
+                whileHover={{ scale: 1.07 }}
+              >
+                My work
+              </motion.button>
             </a>
             <a href="#Contact">
-              <motion.button variants={textVariants}>Contant Me</motion.button>
+              <motion.button
+                variants={textVariants}
+                whileHover={{ scale: 1.07 }}
+              >
+                Contant Me
+              </motion.button>
             </a>
           </motion.div>
           <motion.img
@@ -75,9 +85,9 @@ const Hero = () => {
         >
           IT-student Programmer Musician
         </motion.div>
-        <div className="imageContainer">
+        <motion.div className="imageContainer">
           <img src="./hero2.png" alt="" />
-        </div>
+        </motion.div>
       </div>
     </div>
   )

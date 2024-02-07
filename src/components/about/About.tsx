@@ -1,8 +1,8 @@
 import './about.scss'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, Variants } from 'framer-motion'
 import { useRef } from 'react'
 
-const firstVariants = {
+const firstVariants: Variants = {
   initial: {
     x: 1500,
     opacity: 0,
@@ -16,7 +16,7 @@ const firstVariants = {
   },
 }
 
-const secondVariants = {
+const secondVariants: Variants = {
   initial: {
     x: -1500,
     opacity: 0,
@@ -46,27 +46,26 @@ type SingleProps = {
 const items = [
   {
     id: 1,
-    img: '/character.png',
+    img: './character.png',
     title: 'Me',
     desc: `
                I am a soon-to-be 35-year-old individual from Helsinki who has
                I am currently in the process of switching careers and am on study leave from my current job. 
                I am in my second year of studying for a degree in IT at Laurea
-               University of Applied Sciences. Additionally, and have been
-               involved in music production for most of my life. Furthermore, I
-               am a proud father of two children.
+               University of Applied Sciences. In my free time I like to spend time with my family,
+               play video games and code.
     `,
   },
   {
     id: 2,
-    img: '/codeguy.png',
+    img: './codeguy.png',
     title: 'Coding',
     desc: `
                Alongside my studies, I am passionately engaged in programming and
                have a keen interest in technology. I started learning programming
                years ago. My dream is to work in the field of programming. I have a
                lot of experience with HTML, CSS, JavaScript, TypeScript, React, Node,
-               and various databases. 
+               and databases. 
                
               
                I have taken several courses related to
@@ -78,7 +77,7 @@ const items = [
   },
   {
     id: 3,
-    img: '/music.png',
+    img: './music.png',
     title: 'Music',
     desc: `
               I'm also deeply passionated by music. I've been involved in making

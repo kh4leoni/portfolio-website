@@ -1,6 +1,9 @@
 html {
+
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+
+
 }
 
 * {
@@ -19,6 +22,9 @@ html {
 
 body {
   background-color: #0c0c1d;
+  overscroll-behavior-y: none;
+
+
 
 
   color: lightgray;
@@ -35,7 +41,7 @@ section {
 }
 
 @mixin mobile {
-  @media (max-width: 738px) {
+  @media (max-width: 800px) {
     @content;
   }
 }
@@ -48,6 +54,13 @@ section {
 
 @mixin desktop {
   @media (max-width: 1440px) {
+    @content;
+  }
+
+}
+
+@mixin semi {
+  @media (max-width: 1220px) {
     @content;
   }
 

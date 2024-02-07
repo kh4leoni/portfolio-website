@@ -2,8 +2,6 @@ import './app.scss'
 import Navbar from './components/navbar/Navbar.tsx'
 import Hero from './components/hero/Hero.tsx'
 import Parallax from './components/parallax/Parallax.tsx'
-import Services from './components/services/Services.tsx'
-
 import Portfolio from './components/portfolio/Portfolio.tsx'
 import Contact from './components/contact/Contact.tsx'
 import Cursor from './components/cursor/Cursor.tsx'

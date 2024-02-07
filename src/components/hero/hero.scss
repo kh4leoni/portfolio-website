@@ -16,6 +16,21 @@
 
     @include desktop {
       padding: 40px;
+
+      img {
+
+        @include mobile {
+
+          margin-bottom: 150px;
+        }
+      }
+    }
+
+    @include smallPhone {
+      img {
+
+        margin-bottom: 0;
+      }
     }
 
   }
@@ -126,6 +141,7 @@
     white-space: nowrap;
     color: #ffffff09;
     width: 50%;
+    letter-spacing: 10px;
   }
 
 

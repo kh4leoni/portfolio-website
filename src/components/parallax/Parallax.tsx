@@ -23,7 +23,7 @@ const Parallax = (props: ParallaxProps) => {
       ref={ref}
       style={{
         background:
-          props.type === 'services'
+          props.type === 'about'
             ? 'linear-gradient(180deg, #111132, #0c0c1d)'
             : 'linear-gradient(180deg, #111132, #505064)',
       }}
@@ -36,7 +36,7 @@ const Parallax = (props: ParallaxProps) => {
         className="planets"
         style={{
           y: yBg,
-          backgroundImage: `url(${props.type === 'services' ? '/planets.png' : 'sun.png'}`,
+          backgroundImage: `url(${props.type === 'about' ? './planets.png' : './sun.png'}`,
         }}
       ></motion.div>
       <motion.div className="stars" style={{ x: yBg }}></motion.div>

@@ -1,6 +1,7 @@
 import './contact.scss'
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { FormEvent, useRef, useState } from 'react'
+import { InfinitySpin } from 'react-loader-spinner'
 import emailjs from '@emailjs/browser'
 
 const variants = {
@@ -21,36 +22,52 @@ const variants = {
 const Contact = () => {
   const ref = useRef(null)
   const formRef = useRef(null)
+
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
   const isInView = useInView(ref)
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
+
+    const form: HTMLFormElement | null = formRef.current
+
+    if (!form) return
 
     emailjs
       .sendForm(
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID,
-        formRef.current,
+        form,
         {
           publicKey: import.meta.env.VITE_PUBLIC_KEY,
         },
       )
       .then(
         () => {
+          setName('')
+          setEmail('')
+          setMessage('')
+          setIsLoading(false)
           setSuccess(true)
           setTimeout(() => {
             setSuccess(false)
-          }, 3000)
+          }, 5000)
         },
         (error) => {
+          setIsLoading(false)
           setError(true)
           setTimeout(() => {
             console.log(error)
             setError(false)
-          }, 3000)
+          }, 5000)
         },
       )
   }
@@ -65,18 +82,6 @@ const Contact = () => {
     >
       <motion.div className="textContainer" variants={variants}>
         <motion.h1 variants={variants}>Lets work together.</motion.h1>
-        {/*<motion.div variants={variants} className="item">
-          <h2>Mail</h2>
-          <span>hello@gmail.com</span>
-        </motion.div>
-        <motion.div className="item" variants={variants}>
-          <h2>Address</h2>
-          <span>Sivukuja 2, 00910 Helsinki</span>
-        </motion.div>
-        <motion.div className="item" variants={variants}>
-          <h2>Phone</h2>
-          <span>0505012003</span>
-        </motion.div>*/}
       </motion.div>
       <div className="formContainer">
         <motion.div
@@ -152,17 +157,36 @@ const Contact = () => {
           ref={formRef}
           onSubmit={sendEmail}
         >
-          <input type="text" required placeholder="Name" name="name" />
-          <input type="email" required placeholder="Email" name="email" />
+          <input
+            type="text"
+            required
+            placeholder="Name"
+            name="from_name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="email"
+            required
+            placeholder="Email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <textarea
             cols={30}
             rows={8}
             placeholder="Message"
             name="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           ></textarea>
           <button type={'submit'}>Submit</button>
-          {error && 'Error'}
-          {success && 'Success'}
+          <div className="conditionals">
+            {isLoading && <InfinitySpin width="200" color="orange" />}
+            {error && 'Error sending message. Please try again.'}
+            {success && 'Message sent successfully!'}
+          </div>
         </motion.form>
       </div>
     </motion.div>
