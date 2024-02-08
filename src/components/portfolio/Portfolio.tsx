@@ -50,7 +50,7 @@ const Single = (props: SingleProps) => {
 
   const { title, img, desc, url } = props.item
   return (
-    <section id="Portfolio">
+    <section>
       <div className="container">
         <div className="wrapper">
           <div className="imageContainer" ref={ref}>

@@ -97,21 +97,25 @@ const Single = (props: SingleProps) => {
   const isInView = useInView(ref, { margin: '-100px' })
 
   return (
-    <motion.section id="About" ref={ref}>
-      <motion.div
-        className="item"
-        variants={props.variants}
-        initial={'initial'}
-        animate={isInView && 'animate'}
-      >
-        <div className="textContainer">
-          <h2>{title}</h2>
-          <p>{desc}</p>
+    <motion.section ref={ref}>
+      <div className="container">
+        <div className="wrapper">
+          <motion.div
+            className="item"
+            variants={props.variants}
+            initial={'initial'}
+            animate={isInView && 'animate'}
+          >
+            <div className="textContainer">
+              <h2>{title}</h2>
+              <p>{desc}</p>
+            </div>
+            <div className="imageContainer">
+              <img src={img} alt="" />
+            </div>
+          </motion.div>
         </div>
-        <div className="imageContainer">
-          <img src={img} alt="" />
-        </div>
-      </motion.div>
+      </div>
     </motion.section>
   )
 }
@@ -119,15 +123,13 @@ const Single = (props: SingleProps) => {
 const About = () => {
   return (
     <motion.div className="about">
-      <motion.div className="wrapper">
-        {items.map((item) => (
-          <Single
-            item={item}
-            key={item.id}
-            variants={item.id === 2 ? secondVariants : firstVariants}
-          />
-        ))}
-      </motion.div>
+      {items.map((item) => (
+        <Single
+          item={item}
+          key={item.id}
+          variants={item.id === 2 ? secondVariants : firstVariants}
+        />
+      ))}
     </motion.div>
   )
 }
