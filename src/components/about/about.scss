@@ -34,6 +34,7 @@
       gap: 90px;
       padding-top: 15%;
 
+
       @include tablet {
         height: 100%;
         flex-direction: column;
@@ -41,10 +42,19 @@
         justify-content: center;
       }
 
+      @include tabletHori {
+        margin-top: 300px;
+      }
+
       @include mobile {
 
         transform: none !important;
+        margin-top: 50px;
 
+      }
+
+      @include smallPhone {
+        margin-top: 100px;
       }
 
 

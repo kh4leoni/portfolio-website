@@ -44,6 +44,13 @@ section {
   }
 }
 
+@mixin tabletHori {
+  @media (max-width: 824px) {
+    @content
+  }
+
+}
+
 @mixin tablet {
   @media (max-width: 1024px) {
     @content;
